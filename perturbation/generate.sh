@@ -10,7 +10,7 @@ do
 	mkdir pertinv_${pertinv}
 	cd pertinv_${pertinv}
 	cp -r ../../kelvinhelmholtz_template ./kelvinhelmholtz
-	
+	sed -i "s/NX/${nx}/g" kelvinhelmholtz/kelvinhelmholtz.xml
 	sed -i "s/DIST/${dist}/g" kelvinhelmholtz/kelvinhelmholtz.xml
 	sed -i "s/PERTURBATIONINV/${pertinv}/g" kelvinhelmholtz/kelvinhelmholtz.py
 
