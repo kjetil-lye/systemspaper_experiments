@@ -16,7 +16,7 @@
   <equationParameters>
     <gamma>1.4</gamma>
   </equationParameters>
-  <reconstruction>WENO2</reconstruction>
+  <reconstruction>weno2</reconstruction>
   <cfl>auto</cfl>
   <integrator>auto</integrator>
   <functionals>

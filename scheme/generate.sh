@@ -11,7 +11,7 @@ do
 	cp -r ../../kelvinhelmholtz_template ./kelvinhelmholtz
 	
 	sed -i "s/NX/${nx}/g" kelvinhelmholtz/kelvinhelmholtz.xml
-	sed -i "s/RECONSTRUCTION/${reconstruction}/g" kelvinhelmholtz/kelvinhelmholtz.xml
+	sed -i "s/RECONSTRUCTION/${reconstruction,,}/g" kelvinhelmholtz/kelvinhelmholtz.xml
 
 	cd ..;
     done
