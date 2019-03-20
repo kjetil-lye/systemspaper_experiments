@@ -1,0 +1,119 @@
+<config>
+<fvm>
+  <name>
+    eulerbrownian
+  </name>
+  <platform>cpu</platform>
+  <grid>
+    <lowerCorner>0 0 0</lowerCorner>
+    <upperCorner>1 1 0</upperCorner>
+    <dimension>64 64 1</dimension>
+  </grid>
+  <boundary>periodic</boundary>
+  <flux>hll3</flux>
+  <endTime>4</endTime>
+  <equation>euler2</equation>
+  <equationParameters>
+    <gamma>1.4</gamma>
+  </equationParameters>
+  <reconstruction>wenof2</reconstruction>
+  <cfl>auto</cfl>
+  <integrator>auto</integrator>
+
+  <initialData>
+    <python>euler_brownian.py</python>
+    <parameters>
+      <parameter>
+        <name>X</name>
+        <length>2097152</length>
+        <values><value>0</value></values>
+      </parameter>
+    </parameters>
+  </initialData>
+  <diffusion>
+    <name>none</name>
+    <reconstruction>none</reconstruction>
+  </diffusion>
+</fvm>
+<uq>
+  <samples>64</samples>
+  <generator>auto</generator>
+  <parameters>
+    <parameter>
+      <name>X</name>
+      <length>2097152</length>
+      <type>normal</type>
+    </parameter>
+  </parameters>
+  <stats>
+  <stat>
+    <name>
+    bv
+  </name>
+  <numberOfSaves>10</numberOfSaves>
+   <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>eulerbrownian</basename>
+  </writer>
+  </stat>
+  <stat>
+    <name>
+      bv
+    </name>
+    <numberOfSaves>10</numberOfSaves>
+     <p>2</p>
+    <writer>
+      <type>netcdf</type>
+      <basename>eulerbrownian</basename>
+    </writer>
+    </stat>
+    <stat>
+      <name>
+        bv
+      </name>
+      <numberOfSaves>10</numberOfSaves>
+       <p>3</p>
+      <writer>
+        <type>netcdf</type>
+        <basename>eulerbrownian</basename>
+      </writer>
+      </stat>
+
+  <stat>
+    <name>
+    bv_direction
+  </name>
+  <numberOfSaves>10</numberOfSaves>
+   <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>eulerbrownian</basename>
+  </writer>
+  </stat>
+  <stat>
+    <name>
+      bv_direction
+    </name>
+    <numberOfSaves>10</numberOfSaves>
+     <p>2</p>
+    <writer>
+      <type>netcdf</type>
+      <basename>eulerbrownian</basename>
+    </writer>
+    </stat>
+    <stat>
+      <name>
+        bv_direction
+      </name>
+      <numberOfSaves>10</numberOfSaves>
+       <p>3</p>
+      <writer>
+        <type>netcdf</type>
+        <basename>eulerbrownian</basename>
+      </writer>
+      </stat>
+
+  </stats>
+</uq>
+</config>
