@@ -1,0 +1,115 @@
+<config>
+<fvm>
+  <name>
+    rm
+  </name>
+  <platform>cpu</platform>
+  <grid>
+    <lowerCorner>0 0 0</lowerCorner>
+    <upperCorner>1 1 0</upperCorner>
+    <dimension>1024 1024 1</dimension>
+  </grid>
+  <boundary>periodic</boundary>
+  <flux>HLL3</flux>
+  <endTime>4</endTime>
+  <equation>euler2</equation>
+  <equationParameters>
+    <gamma>1.4</gamma>
+  </equationParameters>
+  <reconstruction>mc</reconstruction>
+  <cfl>auto</cfl>
+  <integrator>auto</integrator>
+  <initialData>
+    <python>richtmeyermeshkov.py</python>
+    <parameters>
+      <parameter>
+        <name>a</name>
+        <length>40</length>
+        <values><value>0</value></values>
+      </parameter>
+    </parameters>
+  </initialData>
+</fvm>
+<uq>
+  <samples>1024</samples>
+  <generator>auto</generator>
+  <parameters>
+    <parameter>
+      <name>a</name>
+      <length>20</length>
+      <type>uniform</type>
+    </parameter>
+  </parameters>
+  <stats>
+  <stat>
+    <name>
+    bv
+  </name>
+  <numberOfSaves>10</numberOfSaves>
+   <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm</basename>
+  </writer>
+  </stat>
+  <stat>
+    <name>
+      bv
+    </name>
+    <numberOfSaves>10</numberOfSaves>
+     <p>2</p>
+    <writer>
+      <type>netcdf</type>
+      <basename>rm</basename>
+    </writer>
+    </stat>
+    <stat>
+      <name>
+        bv
+      </name>
+      <numberOfSaves>10</numberOfSaves>
+       <p>3</p>
+      <writer>
+        <type>netcdf</type>
+        <basename>rm</basename>
+      </writer>
+      </stat>
+
+  <stat>
+    <name>
+    bv_direction
+  </name>
+  <numberOfSaves>10</numberOfSaves>
+   <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm</basename>
+  </writer>
+  </stat>
+  <stat>
+    <name>
+      bv_direction
+    </name>
+    <numberOfSaves>10</numberOfSaves>
+     <p>2</p>
+    <writer>
+      <type>netcdf</type>
+      <basename>rm</basename>
+    </writer>
+    </stat>
+    <stat>
+      <name>
+        bv_direction
+      </name>
+      <numberOfSaves>10</numberOfSaves>
+       <p>3</p>
+      <writer>
+        <type>netcdf</type>
+        <basename>rm</basename>
+      </writer>
+      </stat>
+
+  </stats>
+</uq>
+
+</config>
