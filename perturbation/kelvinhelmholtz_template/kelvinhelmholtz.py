@@ -16,8 +16,8 @@ def init_global(rho, ux, uy, p, nx, ny, nz, ax, ay, az, bx, by, bz):
 	y = linspace(ay, by, ny)
 
 	X, Y = meshgrid(x, y)
-        X = X.T
-        Y = Y.T
+    X = X.T
+    Y = Y.T
 	perturbation_upper = 0.75 + perturbation*sum([a1[i]*cos(2*pi*(i+1)*(X+b1[i])) for i in range(len(a1))], 0)/normalization1
 	perturbation_lower = 0.25 + perturbation*sum([a2[i]*cos(2*pi*(i+1)*(X+b2[i])) for i in range(len(a2))], 0)/normalization2
 	middle = (Y < perturbation_upper)*(Y > perturbation_lower)
