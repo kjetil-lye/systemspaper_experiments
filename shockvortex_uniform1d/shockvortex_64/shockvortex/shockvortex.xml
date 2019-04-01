@@ -1,0 +1,185 @@
+<config>
+<fvm>
+    <name>
+        shockvortex
+    </name>
+    <platform>cpu</platform>
+    <grid>
+        <lowerCorner>0 0 0</lowerCorner>
+        <upperCorner>1 1 0</upperCorner>
+        <dimension>64 64 1</dimension>
+    </grid>
+    <boundary>neumann</boundary>
+    <flux>HLL3</flux>
+    <endTime>4</endTime>
+    <equation>euler2</equation>
+    <equationParameters>
+        <gamma>1.66666666666667</gamma>
+    </equationParameters>
+    <reconstruction>weno2</reconstruction>
+    <cfl>auto</cfl>
+    <integrator>auto</integrator>
+    <initialData>
+        <python>shockvortex.py</python>
+	<parameters>
+	  <parameter>
+            <name>a</name>
+            <length>40</length>
+            <values><value>0</value></values>
+	  </parameter>
+	</parameters>
+    </initialData>
+    <diffusion>
+        <name>none</name>
+        <reconstruction>none</reconstruction>
+    </diffusion>
+
+</fvm>
+<uq>
+  <samples>64</samples>
+  <generator>auto</generator>
+  <parameters>
+    <parameter>
+      <name>X</name>
+      <length>1</length>
+      <type>uniform1d</type>
+    </parameter>
+  </parameters>
+  <stats>
+  <stat>
+    <name>
+      meanvar
+    </name>
+    <numberOfSaves>16</numberOfSaves>
+    <writer>
+      <type>netcdf</type>
+      <basename>shockvortex</basename>
+    </writer>
+    </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>2</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>2</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <numberOfH>2</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_cube</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>2</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>2</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <numberOfH>2</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_cube</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>2</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>2</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>16</numberOfSaves>
+  <numberOfH>2</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>shockvortex_cube</basename>
+  </writer>
+  </stat>
+
+  </stats>
+</uq>
+</config>

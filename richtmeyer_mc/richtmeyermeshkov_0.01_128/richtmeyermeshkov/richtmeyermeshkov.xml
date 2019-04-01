@@ -1,0 +1,198 @@
+<config>
+<fvm>
+  <name>
+    rm
+  </name>
+  <platform>cpu</platform>
+  <grid>
+    <lowerCorner>0 0 0</lowerCorner>
+    <upperCorner>1 1 0</upperCorner>
+    <dimension>128 128 1</dimension>
+  </grid>
+  <boundary>periodic</boundary>
+  <flux>HLL3</flux>
+  <endTime>4</endTime>
+  <equation>euler2</equation>
+  <equationParameters>
+    <gamma>1.4</gamma>
+  </equationParameters>
+  <reconstruction>mc</reconstruction>
+  <cfl>auto</cfl>
+  <integrator>auto</integrator>
+  <initialData>
+    <python>richtmeyermeshkov.py</python>
+    <parameters>
+      <parameter>
+        <name>a</name>
+        <length>20</length>
+        <values><value>0</value></values>
+      </parameter>
+    </parameters>
+  </initialData>
+
+</fvm>
+<uq>
+  <samples>128</samples>
+  <generator>auto</generator>
+  <parameters>
+    <parameter>
+      <name>a</name>
+      <length>20</length>
+      <type>uniform</type>
+    </parameter>
+  </parameters>
+  <stats>
+  <stat>
+    <name>
+      meanvar
+    </name>
+    <numberOfSaves>1</numberOfSaves>
+    <writer>
+      <type>netcdf</type>
+      <basename>rm</basename>
+    </writer>
+    </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>4</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>4</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <numberOfH>4</numberOfH>
+  <p>1</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_cube</basename>
+  </writer>
+  </stat>
+
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>4</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>4</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <numberOfH>4</numberOfH>
+  <p>2</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_cube</basename>
+  </writer>
+  </stat>
+
+
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>0</direction>
+  <numberOfH>4</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_x</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_basic
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <direction>1</direction>
+  <numberOfH>4</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_y</basename>
+  </writer>
+  </stat>
+
+<stat>
+  <name>
+    structure_cube
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <numberOfH>4</numberOfH>
+  <p>3</p>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm_cube</basename>
+  </writer>
+  </stat>
+
+
+
+<stat>
+  <name>
+    bv
+  </name>
+  <numberOfSaves>1</numberOfSaves>
+  <writer>
+    <type>netcdf</type>
+    <basename>rm</basename>
+  </writer>
+  </stat>
+
+  </stats>
+</uq>
+
+</config>
