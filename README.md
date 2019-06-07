@@ -1,5 +1,5 @@
 # systemspaper_experiments
-Experiments for the systems paper in 2d.
+Experiments configuration files for the paper  [U. S. Fjordholm, K. Lye, S. Mishra, F. Weber, Statistical solutions of hyperbolic systems of conservation laws: numerical approximation,  preprint arXiv:1906.02536 [math.NA]](http://arxiv.org/abs/1906.02536)
 
 All the numerical experiments, except for the single sample runs, which are in the [postprocessing repository](https://github.com/kjetil-lye/statistical_systems_paper_experiments), can be run from configuration files in this repostiry.
 
