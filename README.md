@@ -12,14 +12,14 @@ The configuration files in the current repository can be run with alsvinn v0.4.1
 
 For each ```.xml``` file, run ```alsuqcli``` on that ```.xml``` file one directory up, eg
 
-    cd /home/kjetil/projects/systemspaper_experiments/kh_daint/samples_kelvinhelmholtz_0.1_1024
+    cd kh_daint/samples_kelvinhelmholtz_0.1_1024
     alsuqcli kelvinhelmholtz/kelvinhelmholtz.xml
 
 ## Running the experiments with Docker
 
 You can directly run all the experiments through the docker container ```alsvinn/alsvinn_cuda:release-0.4.1```. To run an experiment, do something like
 
-    cd /home/kjetil/projects/systemspaper_experiments/kh_daint/samples_kelvinhelmholtz_0.1_1024
+    cd kh_daint/samples_kelvinhelmholtz_0.1_1024
     docker run -v $(pwd):$(pwd) -w $(pwd) --rm alsvinn/alsvinn_cuda:release-0.4.1 kelvinhelmholtz/kelvinhelmholtz.xml
 
 If you are not on a POSIX complaint shell,  ```$(pwd)``` should be replaced by the current working directory.
